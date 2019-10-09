@@ -55,7 +55,14 @@ class AppointmentController {
     if (!isProvider) {
       return res
         .status(401)
-        .json({ error: 'You con only create appointments with providers' });
+        .json({ error: 'You can only create appointments with providers' });
+    }
+
+    /**
+     * check if userlog is not a provider
+     */
+    if (provider_id === req.userId) {
+      return res.status(401).json({ error: 'provider does not schedule time' });
     }
     /**
      * check for past dates
