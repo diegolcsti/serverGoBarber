@@ -36,4 +36,4 @@ routes.post('/files', upload.single('file'), FileController.store);
 
 export default routes;
 
-// nodemailer
+// fila Redis
